@@ -40,6 +40,7 @@
 ```
 yeren-trading-judge/
 ├── SKILL.md                    # 技能主入口：触发条件、五步工作流、输出模板、铁律
+├── install.md                  # 供 Codex 等 Agent 读取的安装说明（给链接即装）
 ├── references/
 │   ├── cycle.md                # 情绪周期五阶段量化判定、仓位动作表、四大节点、鱼尾识别
 │   ├── selection.md            # 主线五步法、真龙头三硬指标、角色体系、审美标准
@@ -69,6 +70,29 @@ git clone https://github.com/shiliantao/yeren-trading-judge.git
 - "按体系帮我复盘今天的操作"
 
 配合 iFinD 插件可自动获取实时行情、连板梯队、涨跌停数据，完成第 0 步取数。
+
+### OpenAI Codex（给链接即装）
+
+**最省事：把下面这句话发给 Codex**，它会自己读安装说明并执行（安装说明见 [install.md](install.md)）：
+
+```
+Read https://github.com/shiliantao/yeren-trading-judge/blob/main/install.md and follow the instructions to install the skill.
+```
+
+手动安装也很一行：
+
+```bash
+# 用户级（所有项目可用）
+git clone https://github.com/shiliantao/yeren-trading-judge.git ~/.agents/skills/yeren-trading-judge
+
+# Windows PowerShell
+git clone https://github.com/shiliantao/yeren-trading-judge.git "$env:USERPROFILE\.agents\skills\yeren-trading-judge"
+
+# 仓库级（仅当前项目）
+mkdir -p .agents/skills && git clone https://github.com/shiliantao/yeren-trading-judge.git .agents/skills/yeren-trading-judge
+```
+
+装好后用 `$yeren-trading-judge` 显式调用，或直接问股票问题自动触发（如看不到新技能，重启 Codex 或运行 `/skills` 确认）。
 
 ### Claude Code / 其他支持 Agent Skill 的平台
 
